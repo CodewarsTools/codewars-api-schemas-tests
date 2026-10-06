@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AndriiKot/codewars-api-schemas/schemas/code-challenge.json",
+  "title": "Code Challenge",
+  "description": "Schema for a Codewars challenge.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "url",
+    "category",
+    "description",
+    "tags",
+    "languages",
+    "rank",
+    "createdBy",
+    "approvedBy",
+    "totalAttempts",
+    "totalCompleted",
+    "totalStars",
+    "voteScore",
+    "publishedAt",
+    "approvedAt",
+    "createdAt",
+    "contributorsWanted",
+    "unresolved"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rank": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "color"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "createdBy": {
+      "type": "object",
+      "required": [
+        "username",
+        "url"
+      ],
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "approvedBy": {
+      "type": "object",
+      "required": [
+        "username",
+        "url"
+      ],
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "totalAttempts": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "totalCompleted": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "totalStars": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "voteScore": {
+      "type": "integer"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approvedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "contributorsWanted": {
+      "type": "boolean"
+    },
+    "unresolved": {
+      "type": "object",
+      "required": [
+        "issues",
+        "suggestions"
+      ],
+      "properties": {
+        "issues": {
+          "type": "integer"
+        },
+        "suggestions": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

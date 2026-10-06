@@ -1,15 +1,50 @@
 import Ajv from 'ajv/dist/2020.js';
-import userProfileSchema from './schemas/user-profile.schema.json' with { type: 'json' };
-import userProfile from './data/user-profile.json' with { type: 'json' };
+import addFormats from 'ajv-formats';
+
+import userProfileSchema from './schemas/user/profile.schema.json' with { type: 'json' };
+import userAuthoredSchema from './schemas/user/authored-challenges.schema.json' with { type: 'json' };
+import userCompletedSchema from './schemas/user/completed-challenges.schema.json' with { type: 'json' };
+import challengeSchema from './schemas/challenges/challenge.schema.json' with { type: 'json' };
+
+import userProfile from './data/user/profile.json' with { type: 'json' };
+import userAuthored from './data/user/authored-challenges.json' with { type: 'json' };
+import userCompleted from './data/user/completed-challenges.json' with { type: 'json' };
+import challenge from './data/challenges/challenge.json' with { type: 'json' };
 
 const ajv = new Ajv();
 
-const validate = ajv.compile(userProfileSchema);
+addFormats(ajv);
 
-const valid = validate(userProfile);
+const tests = [
+  {
+    name: 'profile.schema.json',
+    schema: userProfileSchema,
+    data: userProfile,
+  },
+  {
+    name: 'authored-challenges.schema.json',
+    schema: userAuthoredSchema,
+    data: userAuthored,
+  },
+  {
+    name: 'completed-challenges.schema.json',
+    schema: userCompletedSchema,
+    data: userCompleted,
+  },
+  {
+    name: 'challenge.schema.json',
+    schema: challengeSchema,
+    data: challenge,
+  },
+];
 
-console.log(valid);
+for (const { name, schema, data } of tests) {
+  const validate = ajv.compile(schema);
+  const valid = validate(data);
 
-if (!valid) {
-  console.log(validate.errors);
+  console.log(`${name}: ${valid}`);
+
+  if (!valid) {
+    console.log(validate.errors);
+  }
 }
