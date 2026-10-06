@@ -1,5 +1,5 @@
 {
-  "name": "codewars-api-schemas-tests",
+  "name": "@codewarstools/codewars-api-schemas-tests",
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
