@@ -1,0 +1,1 @@
+# codewars-api-schemas-tests 
