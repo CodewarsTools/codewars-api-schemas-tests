@@ -1,10 +1,18 @@
 import Ajv from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 
-import userProfileSchema from './schemas/user/profile.schema.json' with { type: 'json' };
-import userAuthoredSchema from './schemas/user/authored-challenges.schema.json' with { type: 'json' };
-import userCompletedSchema from './schemas/user/completed-challenges.schema.json' with { type: 'json' };
-import challengeSchema from './schemas/challenges/challenge.schema.json' with { type: 'json' };
+import userProfileSchema from '@codewarstools/codewars-api-schemas/schemas/user/profile.schema.json' with {
+  type: 'json',
+};
+import userAuthoredSchema from '@codewarstools/codewars-api-schemas/schemas/user/authored-challenges.schema.json' with {
+  type: 'json',
+};
+import userCompletedSchema from '@codewarstools/codewars-api-schemas/schemas/user/completed-challenges.schema.json' with {
+  type: 'json',
+};
+import challengeSchema from '@codewarstools/codewars-api-schemas/schemas/challenges/challenge.schema.json' with {
+  type: 'json',
+};
 
 import userProfile from './data/user/profile.json' with { type: 'json' };
 import userAuthored from './data/user/authored-challenges.json' with { type: 'json' };
